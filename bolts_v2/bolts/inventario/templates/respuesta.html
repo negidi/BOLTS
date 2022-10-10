@@ -1,0 +1,27 @@
+{% extends "index.html" %}
+{% block titulo %} Activo creado  {% endblock %}
+{% block body %}
+
+
+<body style="background-color:#8daef0   ;">
+              
+    <h1 style="background-color:#d8d9dc  " ;>Datos de activo </h1>
+    <div class="col">
+        <p>🟢Id activo: {{Activos.idActivo}}</p>
+        <p>🟢Nombre: {{Activos.nombre}}</p>
+        <p>🟢Cantidad:{{Activos.cantidad}}</p>
+        <p>🟢Precio: {{Activos.precio}}</p>
+        <p>🟢Responsable: {{Activos.responsable}}</p>
+   
+    </div>
+    <a name="" id="" class="btn btn-danger" href="/creacionActivo/" role="button">VOLVER👈🏼</a><br><br>
+    <a name="" id="" class="btn btn-link" href="/home/" role="#">Volver home</a>
+
+    
+    </body>
+
+
+
+
+
+{% endblock %}

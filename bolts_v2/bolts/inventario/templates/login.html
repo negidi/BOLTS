@@ -1,0 +1,53 @@
+{% block titulo %}{% endblock %}
+{% block body %}
+
+<body style="background-color:#8daef0  ;">
+    
+    
+    <body style="background-color:#8daef0  ;">
+        <center>
+    
+        <h1 style="background-color:#d8d9dc " ;>Login BOLTS </h1>
+            <form action="/respuesta/" method="post"> {% csrf_token %}
+                <table>
+                    <tr>
+                        <td>Usuario </td>
+                        <td>
+                            <input type="text" name="txt_us_id" placeholder="Ingrese Usuario: "/>
+                        </td>
+                    </tr>
+                    <tr>
+                    <td>Contraseña </td>
+                        <td>
+                            <input type="number" name="txt_psw" placeholder="Ingrese Contraseña: "/>
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                            <tr>
+                                <table>
+                                <td>
+                                    <input type="submit" value="Ingresar " />
+                                </td>
+                                <td>
+                                    <input type="reset" value="Cancelar" />
+                                </td><br>
+                                <tr>
+                                <td>
+                                    <a name="" id="" class="btn btn-danger" href="/home/" role="button">Volver home</a>
+                                </td>
+                            </tr>
+                             
+                            </tr>
+                               
+    
+                        </td>
+
+                    </table>
+                    </tr>
+                </center>
+
+    </body>
+
+{% endblock %}
