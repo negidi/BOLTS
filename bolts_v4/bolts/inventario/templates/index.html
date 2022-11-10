@@ -1,0 +1,74 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titulo %} Aplicación BOLTS {%endblock %}</title>    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+</head>
+<body style="background-color:#8daef0  ;">
+      <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/home/"><img  src="{% static "img/logo.jpg"%}"  width="150" height="50"  alt="Logo Bolts" /></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation" href="">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <div class="w3-dropdown-hover">
+                <button class="w3-button w3-blue">Modulo activos</button>
+                <div class="w3-dropdown-content w3-bar-block w3-border">
+                  <a href=/creacionActivo/ class="w3-bar-item w3-button">Agregar activo</a>
+                  <a href="#" class="w3-bar-item w3-button">Actualizar activos</a>
+                  <a href="#" class="w3-bar-item w3-button">Eliminar activos</a>
+                </div>
+              </div>
+                    </li>
+                    <ul></ul>   
+					  <li class="nav-item">
+              <div class="w3-dropdown-hover">
+                <button class="w3-button w3-blue">Modulo usuarios</button>
+                <div class="w3-dropdown-content w3-bar-block w3-border">
+                  <a href="#" class="w3-bar-item w3-button">Agregar Usuario</a>
+                  <a href="#" class="w3-bar-item w3-button">Actualizar Usuario</a>
+                  <a href="#" class="w3-bar-item w3-button">Eliminar Usuario</a>
+                </div>
+              </div>
+                    </li>
+              <ul></ul>  
+              <li class="nav-item">
+                <div class="w3-dropdown-hover">
+                  <button class="w3-button w3-blue">Modulo consulta</button>
+                  <div class="w3-dropdown-content w3-bar-block w3-border">
+                    <a href="#" class="w3-bar-item w3-button">Herramientas</a>
+                    <a href="#" class="w3-bar-item w3-button">Maquinarias</a>
+                  </div>
+                </div>
+                      </li>
+              <ul></ul>
+            <li class="nav-item">
+              <div class="w3-dropdown-hover">
+                <button class="w3-button w3-blue">Modulo Registro de actividad</button>
+                <div class="w3-dropdown-content w3-bar-block w3-border">
+                  <a href="#" class="w3-bar-item w3-button">Auditoria</a>
+                </div>
+              </div>
+                  </li>
+                </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="container py-4">
+        {% block body %}
+        {% endblock %}
+      </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>
+
