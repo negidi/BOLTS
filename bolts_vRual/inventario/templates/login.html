@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html lang="en"
+    <head>
+
+        <meta charset"UTF-8">
+        <meta name="viewport">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Ingreso</title>
+
+    </head>
+    <body>
+        <div class="container">
+
+            <div class="card">
+                <div class="card-body">
+                    <h2>Ingresar credenciales</h2>
+                    <hr>
+                    <form action="homelogin" method="post"> {% csrf_token %}
+                        <table>
+                            <tr>
+                                <td>id_permiso</td>
+                                <td><input type="text" name="id_permiso" placeholder="Ingrese id"/></td>
+                            </tr>
+                            <tr>
+                                <td>Contraseña</td>
+                                <td><input type="password" name="contrasenna" placeholder="Ingrese contraseña"/></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="submit" value="Iniciar sesion"/>
+                                </td>
+                                <td>
+                                    <input type="reset" value="cancelar"/>
+                                </td>
+                            </tr>
+                        </table>
+                        {{mensaje}}
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </body>
