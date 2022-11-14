@@ -1,0 +1,33 @@
+
+{% extends "index.html" %} {% block titulo %} Clientes {% endblock %} {% block body %}
+<h1>Registro de Clientes</h1>
+<form action="/registrarCliente/" method="post"> {% csrf_token %}
+    <table>
+        <tr>
+            <td>Rut Cliente</td>
+            <td><input type="text" name="rut_cliente" placeholder="Ingrese id cliente" required/></td>
+        </tr>
+        <tr>
+            <td>Nombre Cliente</td>
+            <td><input type="text" name="nombre_cliente" placeholder="Ingrese rut empresa" required/></td>
+        </tr>
+        <tr>
+            <td>Telefono</td>
+            <td><input type="tel" name="telefono_contacto" placeholder="Ingrese telefono de contacto" required/></td>
+        </tr>
+        <tr>
+            <td>Dirección</td>
+            <td><input type="text" name="direccion" placeholder="Ingrese dirección" required/></td>
+        </tr>  
+        <tr>
+            <td>Codigo de Maquina</td>
+            <td><input type="text" name="cod_maquina" placeholder="Ingrese el SKU de la cod_maquina" required/></td>
+        </tr>   
+    </table>
+    <div class="form-group py-5">
+        <button type="submit" class="btn btn-success btn-block">Ingresar</button>
+        <button type="reset" class="btn btn-danger btn-block" onclick="document.location.href='#'">Cancelar</button>
+    </div>
+</form>
+
+{% endblock %}

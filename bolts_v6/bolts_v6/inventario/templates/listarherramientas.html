@@ -1,0 +1,35 @@
+{% extends "index.html" %} {% block titulo %} Listar Herramientas {% endblock %} {% block body %}
+{% load humanize %}
+<h1>Listado de herramientas</h1>
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">ID Activo</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Codigo de Herramienta</th>
+            <th scope="col">Proveedor</th>
+            <th scope="col">Marca</th>
+
+          </tr>
+        </thead>
+        <tbody>
+            <tbody>
+                {% for x in  herramientas %}
+                <tr>
+                    <td>{{x.activo_id}}</td>
+                    <td>{{x.activo.nombre_activo }}</td>
+                    <td>{{x.activo.cantidad}}</td>
+                    <td>{{ x.activo.precio | intword }}</td>
+                    <td>{{x.cod_herramienta}}</td>
+                    <td>{{x.proveedor}}</td>
+                    <td>{{x.marca}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+      </table>
+
+
+{% endblock %}

@@ -1,0 +1,54 @@
+
+{% extends "index.html" %} {% block titulo %} Usuarios {% endblock %} {% block body %}
+<h1>Registro de Usuarios</h1>
+<form action="/registrarUsuario/" method="post"> {% csrf_token %}
+    <table>
+        <tr>
+            <td>ID usuario</td>
+            <td><input type="text" name="id_us" placeholder="Ingrese id" required/></td>
+        </tr>
+        <tr>
+            <td>Primer nombre</td>
+            <td><input type="text" name="primer_nombre" placeholder="Ingrese primer nombre" required/></td>
+        </tr>
+        <tr>
+            <td>Segundo nombre</td>
+            <td><input type="text" name="segundo_nombre" placeholder="Ingrese segundo nombre" /></td>
+        </tr>  
+        <tr>
+            <td>Primer apellido</td>
+            <td><input type="text" name="primer_apellido" placeholder="Ingrese primer apellido" required/></td>
+        </tr>
+
+        <tr>
+            <td>Segundo Apellido</td>
+            <td><input type="text" name="segundo_apellido" placeholder="Ingrese segundo apellido" /></td>
+        </tr>        
+        <tr>
+            <td>Email</td>
+            <td><input type="email" name="email" placeholder="Ingrese email" required /></td>
+        </tr> 
+        <tr>
+            <td>Telefono</td>
+            <td><input type="tel" name="nro_telefono" placeholder="Ingrese telefono" required /></td>
+        </tr> 
+        <tr>
+            <td>Contraseña</td>
+            <td><input type="password" name="psw" placeholder="Ingrese telefono" required /></td>
+        </tr> 
+        <tr>
+            <td>Fecha de nacimiento</td>
+            <td><input type="date" name="fecha_nacimiento" placeholder="Ingrese fecha de nacimiento" required /></td>
+        </tr> 
+        <tr>
+            <td>Rol</td>
+            <td><input type="txt" name="rol" placeholder="Ingrese Rol" required /></td>
+        </tr> 
+    </table>
+    <div class="form-group py-5">
+        <button type="submit" class="btn btn-success btn-block">Ingresar</button>
+        <button type="reset" class="btn btn-danger btn-block" onclick="document.location.href='#'">Cancelar</button>
+    </div>
+</form>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+VIDEO PARA ADJUNTAR IMAGENES A LOS TEMPLATES
+    https://www.youtube.com/watch?v=f8i4g-8YAmo 
+
+
+VIDEO PARA ADJUNTAR ESTILOS POR CSS
+    https://www.youtube.com/watch?v=TrYHihRlOvM
+    
+
+PARA QUE SALGA EL LOGIN DE PRIMERO, SE DEBE CONFIGURAR LA URL DE LA SIGUIENTE MANERA:
+urlpatterns = [
+
+    path ('', views.login),
+    path('index', views.index),
+    path('creacionActivo/', views.creacionActivo),
+    path ('respuesta/', views.respuesta),
+    path ('home/', views.home)
+
+] 
+
+django.contrib.humanize
+https://docs.djangoproject.com/en/4.1/ref/contrib/humanize/#intword
+
+FOR ANIDADO
+https://uniwebsidad.com/libros/django-1-0/capitulo-4/etiquetas-basicas-de-plantillas-y-filtros
+
+QUERYS DJANGO
+https://docs.djangoproject.com/en/4.1/ref/models/querysets/
+https://docs.djangoproject.com/en/4.1/ref/models/querysets/#queryset-api
+https://docs.djangoproject.com/en/4.1/topics/db/queries/
+
+SELECT
+https://betterprogramming.pub/django-select-related-and-prefetch-related-f23043fd635d
+https://coffeebytes.dev/diferencias-entre-select_related-y-prefetch_related-en-django/

@@ -1,0 +1,42 @@
+
+{% extends "index.html" %} {% block titulo %} Herramientas {% endblock %} {% block body %}
+<h1>Registro de Maquinas</h1>
+<form action="/registrarMaquinaria/" method="post"> {% csrf_token %}
+    <table>
+        <tr>
+            <td>Id activo</td>
+            <td><input type="text" name="id_activo" placeholder="Ingrese id activo" required/></td>
+        </tr>
+        <tr>
+            <td>Nombre</td>
+            <td><input type="text" name="nombre_activo" placeholder="Ingrese nombre del activo" required/></td>
+        </tr>
+        <tr>
+            <td>Cantidad</td>
+            <td><input type="number" name="cantidad" placeholder="Ingrese cantidad" required/></td>
+        </tr>
+        <tr>
+            <td>Precio</td>
+            <td><input type="text" name="precio" placeholder="Ingrese precio de la herramienta" required/></td>
+        </tr>
+        <tr>
+            <td>Codigo de Maquina</td>
+            <td><input type="text" name="cod_maquina" placeholder="Ingrese el SKU de la cod_maquina" required/></td>
+        </tr>
+        <tr>
+            <td>Diseno Maquina</td>
+            <td><input type="file" name="disenomaq" placeholder="Ingrese diseno de la maquina"/></td>
+        </tr>
+        <tr>
+            <td>Material Estructura</td>
+            <td><input type="text" name="estructuramaq" placeholder="Ingrese la marca de la maquina"required/></td>
+        </tr>
+        
+    </table>
+    <div class="form-group py-5">
+        <button type="submit" class="btn btn-success btn-block">Ingresar</button>
+        <button type="reset" class="btn btn-danger btn-block" onclick="document.location.href='#'">Cancelar</button>
+    </div>
+</form>
+
+{% endblock %}

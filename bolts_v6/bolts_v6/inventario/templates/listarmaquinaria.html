@@ -1,0 +1,35 @@
+{% extends "index.html" %} {% block titulo %} Listar Maquinaria {% endblock %} {% block body %}
+
+<h1>Listado de Maquinaria</h1>
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">ID Activo</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Codigo de Maquinaria</th>
+            <th scope="col">Diseño Maquinaria</th>
+            <th scope="col">Material de estructura</th>
+
+          </tr>
+        </thead>
+        <tbody>
+            <tbody>
+                {% for y in  maquinaria %}
+                <tr>
+                    <td>{{y.activo_id}}</td>
+                    <td>{{y.activo.nombre_activo | title }}</td>
+                    <td>{{y.activo.cantidad}}</td>
+                    <td>{{y.activo.precio}}</td>
+                    <td>{{y.cod_maquinaria}}</td>
+                    <td>{{y.diseño_maquinaria}}</td>
+                    <td>{{y.material_estructura}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+      </table>
+
+
+{% endblock %}

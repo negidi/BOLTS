@@ -1,0 +1,44 @@
+{% extends "index.html" %} {% block titulo %} Listar Clientes {% endblock %} {% block body %}
+
+<h1>Listado de Clientes</h1>
+
+    <table class="table">
+        <thead>
+            
+          <tr>
+            <th scope="col">Rut Cliente</th>
+            <th scope="col">Nombre Cliente</th>
+            <th scope="col">Telefono de contacto</th>
+            <th scope="col">Dirección</th>
+            <th scope="col">ID Activo</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Codigo de Maquinaria</th>
+            <th scope="col">Diseño Maquinaria</th>
+            <th scope="col">Material de estructura</th>
+
+          </tr>
+        </thead>
+        <tbody>
+            <tbody>
+                {% for z in  clientes %}
+                <tr>
+                    <td>{{z.rut_cliente}}</td>
+                    <td>{{z.nombre_cliente }}</td>
+                    <td>{{z.telefono_contacto}}</td>
+                    <td>{{z.direccion}}</td>
+                    <td>{{z.maquinaria.activo.id_activo}}</td>
+                    <td>{{z.maquinaria.activo.nombre_activo}}</td>
+                    <td>{{z.maquinaria.activo.cantidad}}</td>
+                    <td>{{z.maquinaria.activo.precio}}</td>
+                    <td>{{z.maquinaria.cod_maquinaria}}</td>
+                    <td>{{z.maquinaria.diseño_maquinaria}}</td>
+                    <td>{{z.maquinaria.material_estructura}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+      </table>
+
+
+{% endblock %}
