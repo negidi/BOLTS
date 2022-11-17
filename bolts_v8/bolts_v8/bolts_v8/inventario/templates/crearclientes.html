@@ -1,0 +1,49 @@
+
+{% extends "index.html" %} {% block titulo %} Clientes {% endblock %} {% block body %}
+<h1>Registro de Clientes</h1>
+<form action="/registrarCliente/" method="post"> {% csrf_token %}
+    <table>
+        <h1>{{mensaje}}</h1>
+        <tr>
+            <td>ID Compra</td>
+            <td><input type="text" name="id_activo" readonly="yes" value="{{idco}}"/></td>
+        </tr>
+        <tr>
+            <td>Rut Cliente</td>
+            <td><input type="text" name="rut_cliente" placeholder="Ingrese id cliente" required/></td>
+        </tr>
+        <tr>
+            <td>Nombre Cliente</td>
+            <td><input type="text" name="nombre_cliente" placeholder="Ingrese rut empresa" required/></td>
+        </tr>
+        <tr>
+            <td>Telefono</td>
+            <td><input type="tel" name="telefono_contacto" placeholder="Ingrese telefono de contacto" required/></td>
+        </tr>
+        <tr>
+            <td>Dirección</td>
+            <td><input type="text" name="direccion" placeholder="Ingrese dirección" required/></td>
+        </tr>
+        <tr>
+            <td>Unidades Compradads</td>
+            <td><input type="number" name="unidades" placeholder="Ingrese unidades compradas" required/></td>
+        </tr>    
+        <tr>
+            <td>ID de activo</td>
+            <td><select id="cod_maquina" name="cod_maquina" required >
+                <option disabled selected value=''>Seleccionar Maquina</option>
+                {% for y in y %}
+                <option value="{{y.activo_id}}" placeholder ="Ingrese maquina">
+                    {{y.activo_id}} - {{y.activo.nombre_activo}}
+                </option>
+             {% endfor %}
+              </select></td>
+        </tr>   
+    </table>
+    <div class="form-group py-5">
+        <button type="submit" class="btn btn-success btn-block">Ingresar</button>
+        <button type="reset" class="btn btn-danger btn-block" onclick="document.location.href='#'">Cancelar</button>
+    </div>
+</form>
+
+{% endblock %}

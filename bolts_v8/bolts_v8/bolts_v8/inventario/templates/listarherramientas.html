@@ -1,0 +1,99 @@
+{% extends "index.html" %} {% block titulo %} Listar Herramientas {% endblock %} {% block body %}
+{% load humanize %}
+<h1>Listado de herramientas</h1>
+
+<body>
+<h3>Listado avanzado</h3>
+
+
+  <form action="/filtroherr/" method="GET">
+    <h4>{{mensaje}}</h4>
+    <!--Se incorpora mejora visual de la busqueda avanzada-->
+    <div class="row">
+      <div class="col">
+        <input type="text" name= "nombre_activ" class="form-control" placeholder="Ingrese nombre del activo" aria-label="nombre_activ">
+      </div>
+      <div class="col">
+        <div class="col-md-4">
+          <select type="text" name="validar" id="validar" class="form-select">
+            <option value="pmayor">Precio mayor</option>
+            <option value="pmenor">Precio menor</option>
+            <option value="pigual">Precio igual</option> 
+        </select>
+        </div>
+        <input type="number" name = "prec" class="form-control" placeholder="Ingrese precio" aria-label="prec">
+      </div>
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary">Buscar</button>
+      </div>
+    </div>
+  </form>
+  <!-- version 1 de tabla de busqueda avanzada
+    <table>
+      <tr>
+          <td>Ingrese Nombre del Activo </td>
+          <td><input type="text" name="nombre_activ"> </td>
+      </tr>
+       <td><select type="text" name="validar" id="validar">
+            <option value="pmayor">Precio mayor</option>
+            <option value="pmenor">Precio menor</option>
+            <option value="pigual">Precio igual</option> </td>
+        </select>
+        <td><input type="number" name="prec"></td>
+      <tr>
+
+          <td><input type="submit" value="Buscar"></td>
+          <td></td>
+      </tr>
+  </table>
+ -->
+
+La Herramienta es : {{query}}
+</body>
+
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">ID Activo</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Proveedor</th>
+            <th scope="col">Marca</th>
+
+          </tr>
+        </thead>
+        <tbody>
+            <tbody>
+                {% for x in  herramientas %}
+                <tr>
+                    <td>{{x.activo_id}}</td>
+                    <td>{{x.activo.nombre_activo }}</td>
+                    <td>{{x.activo.cantidad}}</td>
+                    <td>{{x.activo.precio | intword }}</td>
+                    <td>{{x.proveedor}}</td>
+                    <td>{{x.marca}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            <tbody>
+                {% if fullhtas %}
+                    {% for q in fullhtas %}
+                    <tr>
+                    <td>{{q.activo.id_activo}}</td>
+                    <td>{{q.activo.nombre_activo}}</td>
+                    <td>{{q.activo.cantidad}}</td>
+                    <td>{{q.activo.precio}}</td>
+                    <td>{{q.proveedor}}</td>
+                    <td>{{q.marca}}</td>
+                    </tr>
+                    {% endfor %}
+                {% endif %}
+        
+            </tbody>
+        
+      </table>
+
+
+{% endblock %}

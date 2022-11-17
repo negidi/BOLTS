@@ -1,0 +1,41 @@
+{% extends "index.html" %} {% block titulo %} Herramientas {% endblock %} {% block body %}
+
+<h1>Registro de herramientas</h1>
+
+<form action="/registrarHerramienta/" method="post"> {% csrf_token %}
+    <table>
+        <tr>
+            <td>Id activo</td>
+            <td><input type="text" name="id_activo" readonly="yes" value="{{idid}}"/></td>
+        </tr>
+        <tr>
+            <td>Nombre</td>
+            <td><input type="text" name="nombre_activo" placeholder="Ingrese nombre del activo" required/></td>
+        </tr>
+        <tr>
+            <td>Cantidad</td>
+            <td><input type="number" name="cantidad" placeholder="Ingrese cantidad" required/></td>
+        </tr>
+        <tr>
+            <td>Precio</td>
+            <td><input type="text" name="precio" placeholder="Ingrese precio de la herramienta"required/></td>
+        </tr>
+        <tr>
+            <td>Proveedor</td>
+            <td><input type="text" name="proveedor" placeholder="Ingrese proveedor de la herramienta"required/></td>
+        </tr>
+        <tr>
+            <td>Marca</td>
+            <td><input type="text" name="marca" placeholder="Ingrese la marca de la herramienta"required/></td>
+        </tr>
+        
+    </table>
+    <div class="form-group py-5">
+        <button type="submit" class="btn btn-success btn-block">Ingresar</button>
+        <button type="reset" class="btn btn-danger btn-block" onclick="document.location.href='#'">Cancelar</button>
+    </div>
+</form>
+
+
+
+{% endblock %}
