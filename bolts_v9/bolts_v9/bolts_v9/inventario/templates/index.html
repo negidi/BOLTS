@@ -1,0 +1,100 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titulo %} Aplicación BOLTS {%endblock %}</title>    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+</head>
+<body style="background-color:#ffffff  ;">
+      <nav class="navbar navbar-expand-lg navbar-light bg-black">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/home/"><img  src="{% static "img/logo.jpg"%}"  width="180" height="80"  alt="Logo Bolts" /></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation" href="">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <div class="w3-dropdown-hover">
+                <button class="w3-button w3-blue">Herramientas</button>
+                <div class="w3-dropdown-content w3-bar-block w3-border">
+                  <a href="/crearHerramientas/" class="w3-bar-item w3-button">Agregar</a>
+                  <a href="/actualizarherr/" class="w3-bar-item w3-button">Actualizar</a>
+                  <a href="#" class="w3-bar-item w3-button">Eliminar</a>
+                </div>
+              </div>
+                    </li>
+                    <ul></ul>
+                    <li class="nav-item">
+                      <div class="w3-dropdown-hover">
+                        <button class="w3-button w3-blue">Maquinarias</button>
+                    <div class="w3-dropdown-content w3-bar-block w3-border">
+                      <a href="/crearMaquinaria/"class="w3-bar-item w3-button">Agregar</a>
+                      <a href="/actualizarmaq/" class="w3-bar-item w3-button">Actualizar</a>
+                      <a href="#" class="w3-bar-item w3-button">Eliminar</a>
+                    </div>
+                      </div>
+                            </li>  
+                   
+                    <ul></ul>   
+					  <li class="nav-item">
+              <div class="w3-dropdown-hover">
+                <button class="w3-button w3-blue">Usuarios</button>
+                <div class="w3-dropdown-content w3-bar-block w3-border">
+                  <a href="/crearusuarios/" class="w3-bar-item w3-button">Agregar</a>
+                  <a href="#" class="w3-bar-item w3-button">Actualizar</a>
+                  <a href="#" class="w3-bar-item w3-button">Eliminar</a>
+                </div>
+              </div>
+                    </li>
+              <ul></ul>
+              <li class="nav-item">
+                <div class="w3-dropdown-hover">
+                  <button class="w3-button w3-blue">Consultas</button>
+                  <div class="w3-dropdown-content w3-bar-block w3-border">
+                    <a href="/listarherramientas/" class="w3-bar-item w3-button">Herramientas</a>
+                    <a href="/listarmaquinaria/" class="w3-bar-item w3-button">Maquinarias</a>
+                    <a href="/listarclientes/" class="w3-bar-item w3-button">Cliente</a>
+                    <a href="#" class="w3-bar-item w3-button">Usuarios</a>
+
+                  </div>
+                </div>
+                      </li>  
+              <ul></ul>
+              <li class="nav-item">
+                <div class="w3-dropdown-hover">
+                  <button class="w3-button w3-blue">Clientes</button>
+                  <div class="w3-dropdown-content w3-bar-block w3-border">
+                    <a href="/crearclientes/" class="w3-bar-item w3-button">Agregar</a>
+                    <a href="#" class="w3-bar-item w3-button">Actualizar</a>
+                    <a href="#" class="w3-bar-item w3-button">Eliminar</a>
+                  </div>
+                </div>
+                      </li>
+              <ul></ul>
+            <li class="nav-item">
+              <div class="w3-dropdown-hover">
+                <button class="w3-button w3-blue">Registro de actividad</button>
+                <div class="w3-dropdown-content w3-bar-block w3-border">
+                  <a href="#" class="w3-bar-item w3-button">Auditoria</a>
+                </div>
+              </div>
+                  </li>
+                </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="container py-4">
+        {% block body %}
+        {% endblock %}
+      </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>
+
