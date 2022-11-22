@@ -1,0 +1,41 @@
+{% extends "index.html" %} 
+{% block titulo %} BOLTS {% endblock %} {% block body %}
+
+<h1>Listado de Usuarios </h1>
+
+    <table class="table">
+        <thead>
+            
+          <tr>
+            <th scope="col">Nombre usuario</th>
+            <th scope="col">Primer Apellido </th>
+            <th scope="col">Segundo Apellido </th>
+            <th scope="col">Rut usuario</th>
+            <th scope="col">Email usuario</th>
+           <!-- <th scope="col">Telefono usuario</th>-->
+            <th scope="col">Rol</th>
+            <!-- <th scope="col">Contrasenna</th> -->
+        
+          </tr>
+        </thead>
+        <tbody>
+            <tbody>
+                {% for z in  usuario %}
+                <tr>
+                    <td>{{z.first_name}}</td>
+                    <td>{{z.last_name}}</td>
+                    <td>{{z.username}}</td>
+                    <td>{{z.rut}}</td>
+                    <td>{{z.email}}</td>
+                    <!--<td>{{z.telefono}}</td>-->
+                    <td>{{z.rol}}</td>
+                    <!-- <td>{{z.password1}}</td> -->
+                
+                </tr>
+                {% endfor %}
+            </tbody>
+          
+      </table>
+
+
+{% endblock %}

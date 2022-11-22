@@ -1,0 +1,259 @@
+{% extends "index.html" %}
+{% block titulo %} BOLTS{% endblock %}
+{% block body %}
+
+
+
+  <div style="background-color: #8daef0">
+    <h1 style="color: #000; font-size: 30px; font-weight: 600; font-size: 50px">
+      Registrarse en Bolts
+      {{mensaje}}
+    </h1>
+    <!-- <form action="login" method="post">
+      {% csrf_token %} {{form}}
+      <button type="submit">Registrar</button>
+    </form> -->
+    <div class="container">
+      <div class="card">
+        <div class="card-body">
+          <h2>Por favor ingresar:</h2>
+
+          <h3>            {{mensaje}}          </h3>
+          <hr />
+          <form action="signup" method="post">
+            {% csrf_token %}
+            <table>
+              <tr>
+                <td>
+                  <h1
+                    style="
+                      color: #000;
+                      font-size: 30px;
+                      font-weight: 400;
+                      font-size: 30px;
+                    "
+                  >
+                    Nombre:
+                  </h1>
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    name="first_name"
+                    placeholder="Nombre de usuario"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h1
+                    style="
+                      color: #000;
+                      font-size: 30px;
+                      font-weight: 400;
+                      font-size: 30px;
+                    "
+                    >
+                    Primer Apellido:
+                  </h1>
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    name="last_name"
+                    placeholder="Apellido de usuario"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h1
+                    style="
+                      color: #000;
+                      font-size: 30px;
+                      font-weight: 400;
+                      font-size: 30px;
+                    "
+                    >
+                    Segundo Apellido:
+                  </h1>
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    name="username"
+                    placeholder="Apellido de usuario"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h1
+                    style="
+                      color: #000;
+                      font-size: 30px;
+                      font-weight: 400;
+                      font-size: 30px;
+                    "
+                  >
+                    Rut:
+                  </h1>
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    name="rut"
+                    placeholder="Ingresar rut usuario "
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h1
+                    style="
+                      color: #000;
+                      font-size: 30px;
+                      font-weight: 400;
+                      font-size: 30px;
+                    "
+
+                    >
+                    email:
+                  </h1>
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    name="email"
+                    placeholder="Email de usuario"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h1
+                    style="
+                      color: #000;
+                      font-size: 30px;
+                      font-weight: 400;
+                      font-size: 30px;
+                    "
+                    >
+                    Telefono:
+                  </h1>
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    name="telefono"
+                    placeholder="Telefono de usuario"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h1
+                    style="
+                      color: #000;
+                      font-size: 30px;
+                      font-weight: 400;
+                      font-size: 30px;
+                    "
+                  >
+                    Rol:
+                  </h1>
+                </td>
+                <td>
+                  <select name="rol" style="width: 100%">
+                    <option value="OPERADOR">Operador</option>
+                    <option value="JEFE">Jefe</option>
+                    <option value="ADMIN">Administrador</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h1
+                    style="
+                      color: #000;
+                      font-size: 30px;
+                      font-weight: 400;
+                      font-size: 30px;
+                    "
+                  >
+                    Contrasenna:
+                  </h1>
+                </td>
+                <td>
+                  <input
+                    type="password"
+                    name="password1"
+                    placeholder="Ingresar contraseña"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h1
+                    style="
+                      color: #000;
+                      font-size: 30px;
+                      font-weight: 400;
+                      font-size: 30px;
+                    "
+                  >
+                    Repetir contraseña:
+                  </h1>
+                </td>
+                <td>
+                  <input
+                    type="password"
+                    name="password2"
+                    placeholder="Repetir contraseña"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input
+                    style="
+                      color: #000;
+                      font-size: 30px;
+                      font-weight: 400;
+                      font-size: 20px;
+                    "
+                    type="submit"
+                    value="Registrar"
+                  />
+                </td>
+                <td>
+                  <input
+                    style="
+                      color: #000;
+                      font-size: 30px;
+                      font-weight: 400;
+                      font-size: 20px;
+                    "
+                    type="reset"
+                    value="cancelar"
+                  />
+                </td>
+              </tr>
+            </table>
+            {{mensaje}}
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  {% if user.rol == "ADMINISTRADOR" %} <!---redirigir a vistas segun rol-->
+
+<h1>{{user.rol}}</h1>
+
+{% else %} 
+<h1>{{user.rol}}</h1>
+{% endif %}
+
+{% endblock %}

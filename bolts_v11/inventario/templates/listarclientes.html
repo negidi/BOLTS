@@ -1,0 +1,125 @@
+{% extends "index.html" %} {% block titulo %} Listar Clientes {% endblock %} {% block body %}
+{% load humanize %}
+
+<h1>Listado de Clientes</h1>
+<!-- Agregando funcion para listar por nombre -->
+<body>
+  <h3>Listado avanzado</h3>
+
+  <form action="/filtroclnte/" method="GET">
+    <h4>{{mensaje}}</h4>
+
+    <div class="row">
+      <div class="col-md-4">
+        <input type="text" name= "nombre_cliente" class="form-control" placeholder="Ingrese nombre del Cliente" aria-label="nombre_cltne"><br>
+      </div>
+      <!-- en proceso para listar por maquina 
+      <td>
+        <td>ID de activo</td>
+        <select id="cod_maquina" name="cod_maquina"  >
+          <option disabled selected value=''>Seleccionar Maquina</option>
+          {% for y in y %}
+          <option value="{{y.activo_id}}" placeholder ="Ingrese maquina">
+              {{y.activo_id}} - {{y.activo.nombre_activo}}
+          </option>
+       {% endfor %}
+        </select></td>-->
+
+
+        <div class="col">
+          <div class="col-md-4">
+            <select type="date" name="validar" id="validar" class="form-select">
+              <option disabled selected ="">Seleccione tipo de fecha</option>
+              <option value="fmayor">Fecha mayor</option>
+              <option value="fmenor">Fecha menor</option>
+              <option value="figual">Fecha igual</option> 
+          </select>
+          </div>
+          <input type="date" name="fecha" placeholder="Ingrese fecha de compra"  min = "2010-01-01"/>
+        </div>
+
+
+
+
+      <div class="col-12">
+        <button type="submit" class="btn btn-success btn-block">Buscar</button>
+        <button type="reset" class="btn btn-danger btn-block" onclick="document.location.href='/listarclientes/'">Limpiar</button>
+      </div>
+    </div>
+  </form>
+</body><br>
+
+
+    <table class="table">
+        <thead>
+            
+          <tr>
+            <th scope="col">ID de Compra</th>
+            <th scope="col">Rut Cliente</th>
+            <th scope="col">Nombre Cliente</th>
+            <th scope="col">Telefono </th>
+            <th scope="col">Dirección</th>
+            <th scope="col">ID Activo</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Unidades Compradas</th>
+            <th scope="col">Fecha de Compra</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Diseño Maquinaria</th>
+            <th scope="col">Material de estructura</th>
+            <th scope="col">Total compra </th>
+          </tr>
+        </thead>
+        <tbody>
+            <tbody>
+                {% for z in  clientes %}
+                <tr>
+                    <td>{{z.id_compra}}</td>
+                    <td>{{z.rut_cliente}}</td>
+                    <td>{{z.nombre_cliente }}</td>
+                    <td>{{z.telefono_contacto}}</td>
+                    <td>{{z.direccion}}</td>
+                    <td>{{z.maquinaria.activo.id_activo}}</td>
+                    <td>{{z.maquinaria.activo.nombre_activo}}</td>
+                    <td>{{z.unidades}}</td>
+                    <td>{{z.fecha}}</td>
+                    <td>{{z.maquinaria.activo.precio | intcomma}}</td>
+                    <td>{{z.maquinaria.diseño_maquinaria}}</td>
+                    <td>{{z.maquinaria.material_estructura}}</td>
+                    <td>{{z.total | intcomma}}</td>
+
+                </tr>
+                {% endfor %}
+            </tbody>
+            <!-- agg if/for para mostrar inf-->
+            <tbody>
+              {% if fullclte %}
+              <h3>{{query}}</h3>
+              <h4>La cantidad de registros es {{contador}}</h4>
+
+                  {% for q in fullclte %}
+
+                  <tr>
+                  <td>{{q.id_compra}}</td>
+                  <td>{{q.rut_cliente}}</td>
+                  <td>{{q.nombre_cliente}}</td>
+                  <td>{{q.telefono_contacto}}</td>
+                  <td>{{q.direccion}}</td>
+                  <td>{{q.maquinaria.activo.id_activo}}</td>
+                  <td>{{q.maquinaria.activo.nombre_activo}}</td>
+                  <td>{{q.unidades}}</td>
+                  <td>{{q.fecha}}</td>
+                  <td>{{q.maquinaria.activo.precio |intword}}</td>
+                  <td>{{q.maquinaria.diseño_maquinaria}}</td>
+                  <td>{{q.maquinaria.material_estructura}}</td>
+                  <td>{{q.total | intword}}</td>
+                  
+                  </tr>
+                  {% endfor %}
+              {% endif %}
+      
+          </tbody>
+          
+      </table>
+
+
+{% endblock %}
