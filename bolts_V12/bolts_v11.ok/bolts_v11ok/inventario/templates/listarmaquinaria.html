@@ -1,0 +1,97 @@
+{% extends "index.html" %} {% block titulo %} Listar Maquinaria {% endblock %} {% block body %}
+<body>
+  <h3>Listado avanzado</h3>
+  
+  
+    <form action="/filtromaqu/" method="GET">
+      <h4>{{mensaje}}</h4>
+      <!--Se incorpora mejora visual de la busqueda avanzada-->
+      <div class="row">
+        <div class="col">
+          <input type="text" name= "nombre_activ" class="form-control" placeholder="Ingrese nombre del activo" aria-label="nombre_activ">
+        </div>
+        <div class="col">
+          <div class="col-md-4">
+            <select type="text" name="validar" id="validar" class="form-select">
+              <option value="pmayor">Precio mayor</option>
+              <option value="pmenor">Precio menor</option>
+              <option value="pigual">Precio igual</option> 
+          </select>
+          </div>
+          <input type="text" name = "prec" class="form-control" placeholder="Ingrese precio" aria-label="prec">
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-success btn-block">Buscar</button>
+          <button type="reset" class="btn btn-danger btn-block" onclick="document.location.href='/listarmaquinaria/'">Limpiar</button>
+        </div>
+      </div>
+    </form>
+    <!-- version 1 de tabla de busqueda avanzada
+      <table>
+        <tr>
+            <td>Ingrese Nombre del Activo </td>
+            <td><input type="text" name="nombre_activ"> </td>
+        </tr>
+         <td><select type="text" name="validar" id="validar">
+              <option value="pmayor">Precio mayor</option>
+              <option value="pmenor">Precio menor</option>
+              <option value="pigual">Precio igual</option> </td>
+          </select>
+          <td><input type="number" name="prec"></td>
+        <tr>
+  
+            <td><input type="submit" value="Buscar"></td>
+            <td></td>
+        </tr>
+    </table>
+   -->
+  </body>
+
+<h1>Listado de Maquinaria</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID Activo</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Cantidad</th>
+      <th scope="col">Precio</th>
+      <th scope="col">Diseño Maquinaria</th>
+      <th scope="col">Material Estructura</th>
+
+    </tr>
+  </thead>
+  <tbody>
+      <tbody>
+          {% for x in  maquinaria %}
+          <tr>
+              <td>{{x.activo_id}}</td>
+              <td>{{x.activo.nombre_activo }}</td>
+              <td>{{x.activo.cantidad}}</td>
+              <td>{{x.activo.precio}}</td>
+              <td>{{x.diseño_maquinaria}}</td>
+              <td>{{x.material_estructura}}</td>
+          </tr>
+          {% endfor %}
+      </tbody>
+      <tbody>
+          {% if fullhtas %}
+        <!--  <h4>La Maquinaria es : {{query}}</h4><br> Modificar para que en el front no se vea mal -->
+              {% for q in fullhtas %}
+              <tr>
+              <td>{{q.activo.id_activo}}</td>
+              <td>{{q.activo.nombre_activo}}</td>
+              <td>{{q.activo.cantidad}}</td>
+              <td>{{q.activo.precio}}</td>
+              <td>{{q.diseño_maquinaria}}</td>
+              <td>{{q.material_estructura}}</td>
+              </tr>
+              {% endfor %}
+          {% endif %}
+  
+      </tbody>
+  
+</table>
+
+
+{% endblock %}
