@@ -1,0 +1,62 @@
+{% extends "index.html" %} 
+{% block titulo %} BOLTS {% endblock %} {% block body %}
+
+<h1>Auditoria </h1>
+
+    <table class="table table-responsive">
+        <thead>
+            
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Usuario</th>
+            <th scope="col">Rol</th>
+            <th scope="col">Movimiento</th>
+            <th scope="col">Objeto modificado</th>
+            <th scope="col">Fecha</th>        
+          </tr>
+        </thead>
+        <tbody>
+            <tbody>
+                {% for movimiento in  movimientos %}
+                <tr>
+                    <td>
+                        {{movimiento.id}}
+                    </td>
+                    <td>
+                        {% if movimiento.user.username %}
+                            {{movimiento.user.username}}
+                        {% else %}
+                            Usuario no registrado
+                        {% endif %}                        
+                    </td>
+                    <td>
+                        {% if movimiento.user.username != 'admin' %}
+                            {% if movimiento.user.username  %}
+                                {{movimiento.user.rol}}
+                            {% else %}
+                                INVITADO
+                            {% endif %}
+                        {% else %}
+                            SUPER_ADMINISTRADOR
+                        {% endif %}  
+                    </td>
+                    <td>
+                        {% if movimiento.action == 0 and not movimiento.isLogin %}{{ 'Crear' }}{% endif %}
+                        {% if movimiento.action == 1 and not movimiento.isLogin %}{{ 'Actualizar' }}{% endif %}
+                        {% if movimiento.action == 2 and not movimiento.isLogin %}{{ 'Eliminar' }}{% endif %}
+                        {% if movimiento.action == 6 and not movimiento.isLogin %}{{ 'Reactivacion usuario' }}{% endif %}
+                        {% if movimiento.isLogin %}{{ 'Login' }}{% endif %}
+                    </td>
+                    <td>
+                        {{movimiento.log}}
+
+                    </td>                
+                    <td>{{movimiento.timestamp}}</td>                
+                </tr>
+                {% endfor %}  
+            </tbody>
+          
+      </table>
+
+
+{% endblock %}

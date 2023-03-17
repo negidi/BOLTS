@@ -1,0 +1,58 @@
+{% extends "index.html" %} {% block titulo %} Usuarios {% endblock %} {% block body %}
+<h1>Eliminar Usuarios</h1>
+
+
+<form action="/eliminarus/" method="get"> {% csrf_token %}
+    <div class="form-group py-2">
+        Ingrese Username 
+        <input type="text" id="username" name="username" class="form-control" placeholder="Ingrese ID por ejemplo: 000SMAf23Mj6"
+        maxlength="30" required>
+    </div>
+    <div class="form-group py-5">
+        <button type="submit" class="btn btn-success btn-block">Buscar</button>
+        <button type="reset" class="btn btn-danger btn-block" onclick="document.location.href='#'">Cancelar</button>
+    </div>
+</form>
+
+<h1>{{mensaje}}</h1>
+<form action="eliminarus" method="post"> {% csrf_token %}
+    <table>
+        <tr>
+            <td>Username</td>
+            <td><input type="text" name="username" readonly="yes" value="{{us.username}}"/></td>
+        </tr>
+        <tr>
+            <td>Rut usuario </td>
+            <td><input type="text" name="rut_usuario" readonly="yes" value="{{us.rut}}"/></td>
+        </tr>
+        <tr>
+            <td>Nombres</td>
+            <td><input type="text" name="nombre_usuario" value="{{us.first_name}}"/></td>
+        </tr>
+        <tr>
+            <td>Apellidos</td>
+            <td><input type="text" name="primer_apellido" value="{{us.last_name}}"/></td>
+        </tr>
+        <tr>
+            <td>Email usuario</td>
+            <td><input type="text" name="email_usuario" value="{{us.email}}"/></td>
+        </tr>
+        <tr>
+            <td>Rol</td>
+            <td><input type="rol" name="rol" value="{{us.rol}}"/></td>
+        </tr>        
+    </table>
+        <!-- 
+        <tr>
+            <td>ID Maquinaria</td>
+            <td><input type="text" name="total" readonly="yes" value="{{cltes.maquinaria}}"/></td>
+        </tr>   
+        -->
+    </table>
+    <div class="form-group py-5">
+        <button type="submit" class="btn btn-success btn-block">Eliminar</button>
+        <button type="reset" class="btn btn-danger btn-block" onclick="document.location.href='#'">Cancelar</button>
+    </div>
+</form>
+
+{% endblock %}

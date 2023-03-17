@@ -1,0 +1,51 @@
+{% extends "index.html" %} {% block titulo %} Herramientas {% endblock %} {% block body %}
+<h1>Actualización de herramientas</h1>
+
+
+<form action="/editarherr/" method="get"> {% csrf_token %}
+    <div class="form-group py-2">
+        Ingrese ID Herramienta
+        <input type="text" id="idactivo" name="idactivo" class="form-control" placeholder="Ingrese ID por ejemplo: 000SMAf23Mj6"
+        maxlength="30" required>
+    </div>
+    <div class="form-group py-5">
+        <button type="submit" class="btn btn-success btn-block">Buscar</button>
+        <button type="reset" class="btn btn-danger btn-block" onclick="document.location.href='#'">Cancelar</button>
+    </div>
+</form>
+
+<h1>{{mensaje}}</h1>
+<form action="editarherr" method="post"> {% csrf_token %}
+    <table>
+        <tr>
+            <td>Id activo</td>
+            <td><input type="text" name="id_activo" readonly="yes" value="{{acti.id_activo}}"/></td>
+        </tr>
+        <tr>
+            <td>Nombre</td>
+            <td><input type="text" name="nombre_maquina" value="{{acti.nombre_activo}}" required/></td>
+        </tr>
+        <tr>
+            <td>Cantidad</td>
+            <td><input type="number" name="cantidad" value="{{acti.cantidad}}" min ="0" required/></td>
+        </tr>
+        <tr>
+            <td>Precio</td>
+            <td><input type="number" name="precio" value="{{acti.precio}}" min ="1" required/></td>
+        </tr>
+        <tr>
+            <td>Proveedor</td>
+            <td><input type="text" name="proveedorherr" value="{{herra.proveedor}}" required/></td>
+        </tr>
+        <tr>
+            <td>Marca</td>
+            <td><input type="text" name="marcaherr" value="{{herra.marca}}" required/></td>
+        </tr>        
+    </table>
+    <div class="form-group py-5">
+        <button type="submit" class="btn btn-success btn-block">Actualizar</button>
+        <button type="reset" class="btn btn-danger btn-block" onclick="document.location.href='#'">Cancelar</button>
+    </div>
+</form>
+
+{% endblock %}
